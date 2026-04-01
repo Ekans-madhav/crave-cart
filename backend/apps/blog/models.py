@@ -17,7 +17,7 @@ class BlogHero(models.Model):
 
 class TrendingFoodStory(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='blog/trending/')
+    image = models.FileField(upload_to='blog/trending/')
     preview = models.TextField(help_text="Short preview of the story")
     detail = models.TextField(help_text="Full detail of the story")
     is_active = models.BooleanField(default=True)
@@ -31,7 +31,7 @@ class TrendingFoodStory(models.Model):
         verbose_name_plural = "Trending Food Stories"
 
 class FoodGallery(models.Model):
-    image = models.ImageField(upload_to='blog/gallery/')
+    image = models.FileField(upload_to='blog/gallery/')
     caption = models.CharField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -46,7 +46,7 @@ class FoodGallery(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True, null=True)
-    image = models.ImageField(upload_to='blog/posts/')
+    image = models.FileField(upload_to='blog/posts/')
     category = models.CharField(max_length=100)
     date = models.CharField(max_length=100, help_text="Display date string (e.g., Oct 12, 2023)")
     description = models.TextField(help_text="Brief description/excerpt")
@@ -72,7 +72,7 @@ class BlogPost(models.Model):
 class ChefTip(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='blog/chef_tips/')
+    image = models.FileField(upload_to='blog/chef_tips/')
     content = models.TextField()
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -83,7 +83,7 @@ class ChefTip(models.Model):
 class FoodCulture(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='blog/culture/')
+    image = models.FileField(upload_to='blog/culture/')
     content = models.TextField()
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -94,7 +94,7 @@ class FoodCulture(models.Model):
 class StreetFoodGuide(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='blog/street_guides/')
+    image = models.FileField(upload_to='blog/street_guides/')
     content = models.TextField()
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -105,7 +105,7 @@ class StreetFoodGuide(models.Model):
 class HealthyEating(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='blog/healthy/')
+    image = models.FileField(upload_to='blog/healthy/')
     content = models.TextField()
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

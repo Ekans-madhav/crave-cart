@@ -2,8 +2,17 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
+
+def home_view(request):
+    return JsonResponse({
+        "status": "online",
+        "message": "CraveCart API is running",
+        "version": "1.0.0"
+    })
 
 urlpatterns = [
+    path('', home_view, name='home'),
     path('admin/', admin.site.urls),
     path('api/', include('apps.users.urls')),
     path('api/', include('apps.categories.urls')),

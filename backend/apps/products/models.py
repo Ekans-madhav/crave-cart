@@ -7,7 +7,7 @@ class Product(models.Model):
     menu_type = models.ForeignKey(MenuType, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0)
-    image = models.ImageField(upload_to="products/", blank=True, null=True)
+    image = models.FileField(upload_to="products/", blank=True, null=True)
     available = models.BooleanField(default=True)
     description = models.TextField(blank=True, null=True)
     is_special = models.BooleanField(default=False)
